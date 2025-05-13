@@ -6,7 +6,7 @@
 /*   By: gd-auria <gianmarco.dauria@libero.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 18:25:05 by gd-auria          #+#    #+#             */
-/*   Updated: 2025/05/12 19:37:20 by gd-auria         ###   ########.fr       */
+/*   Updated: 2025/05/13 18:11:07 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,3 +92,33 @@ std::ostream& operator<<(std::ostream& os,
         beaurocrat.getGrade() << std::endl;
     return os;
 }
+
+void Bureaucrat::signForm(Form& form) const
+{
+    try
+    {
+        form.bureaucratSigned(*this);
+        std::cout << _name << " signed " << form.getName() << std::endl;
+    }
+    catch (std::exception& exception)
+    {
+        std::cout << _name << " could not sign " << form.getName() << std::endl
+        << " because " << exception.what() << std::endl;
+    }
+}
+
+void Bureaucrat::execForm(Form& form) const
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << _name << " executed " << form.getName() << std::endl;
+    }
+    catch (std::exception& exception)
+    {
+        std::cout << _name << " could not execute " << form.getName() << std::endl
+        << " because " << exception.what() << std::endl;
+    }
+}
+
+
