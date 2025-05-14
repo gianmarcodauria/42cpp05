@@ -6,23 +6,23 @@
 /*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 19:26:12 by gd-auria          #+#    #+#             */
-/*   Updated: 2025/05/14 14:25:04 by gd-auria         ###   ########.fr       */
+/*   Updated: 2025/05/14 14:47:54 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-// class AmazonForm : public Form
+// class AmazonForm : public AForm
 // {
 //     public:
-//         AmazonForm(std::string name) : Form(name, 50, 25) {}
+//         AmazonForm(std::string name) : AForm(name, 50, 25) {}
 //         void execute(Bureaucrat const& executor) const
 //         {
 //             if (!isSigned())
-//                 throw Form::FormUnsignedException();
+//                 throw AForm::AFormUnsignedException();
 //             if (executor.getGrade() > getGradeToExecute())
-//                 throw Form::GradeTooLowException();
+//                 throw AForm::GradeTooLowException();
 
 //             std::cout << executor.getName() << " executes " << getName() << std::endl;
 //         }
