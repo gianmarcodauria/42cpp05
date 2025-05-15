@@ -6,40 +6,36 @@
 /*   By: gd-auria <gianmarco.dauria@libero.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 19:26:12 by gd-auria          #+#    #+#             */
-/*   Updated: 2025/05/15 14:00:12 by gd-auria         ###   ########.fr       */
+/*   Updated: 2025/05/15 15:08:41 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "AForm.hpp"
-
-class AmazonForm : public AForm
-{
-    public:
-        AmazonForm(std::string name) : AForm(name, 50, 25) {}
-        void execute(Bureaucrat const& executor) const
-        {
-            if (!isSigned())
-                throw AForm::AFormUnsignedException();
-            if (executor.getGrade() > getGradeToExecute())
-                throw AForm::GradeTooLowException();
-
-            std::cout << executor.getName() << " executes " << getName() << std::endl;
-        }
-};
 
 int main(int argc, char **argv)
 {
     (void)argv;
     if (argc == 1)
     {
+        srand(time(NULL));
         try
         {
-            AmazonForm form("AmazonLogIn");
+            // AmazonForm form("AmazonLogIn");
+            // ShrubberyCreationForm sForm("home");
+            // PresidentialPardonForm pForm("whiteHouse");
             Bureaucrat bureaucrat("Anton", 21);
+            RobotomyRequestForm rForm("robotHouse");
+            bureaucrat.signForm(rForm);
+            rForm.execute(bureaucrat);
 
-            bureaucrat.signForm(form);
-            form.execute(bureaucrat);
+
+            // bureaucrat.signForm(sForm);
+            // bureaucrat.signForm(pForm);
+
+
+            // form.execute(bureaucrat);
         }
         catch(const std::exception& exception)
         {
