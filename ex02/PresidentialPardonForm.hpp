@@ -3,26 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gd-auria <gianmarco.dauria@libero.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:45:49 by gd-auria          #+#    #+#             */
-/*   Updated: 2025/05/14 14:50:44 by gd-auria         ###   ########.fr       */
+/*   Updated: 2025/05/15 17:04:41 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PRESIDENTIAL_PARDON_FORM_HPP
+#define PRESIDENTIAL_PARDON_FORM_HPP
+
 #include "AForm.hpp"
 
-// class PresidentialPardonForm : public AForm
-// {
-//     public:
-//         PresidentialPardonForm(std::string name) : AForm(name, 25, 5) {}
-//         void execute(Bureaucrat const& executor) const
-//         {
-//             if (!isSigned())
-//                 throw AForm::AFormUnsignedException();
-//             if (executor.getGrade() > getGradeToExecute())
-//                 throw AForm::GradeTooLowException();
 
-//             std::cout << executor.getName() << " executes " << getName() << std::endl;
-//         }
-// };
+class PresidentialPardonForm : public AForm
+{
+    public:
+        PresidentialPardonForm();
+        PresidentialPardonForm(const std::string& target);
+        PresidentialPardonForm(const PresidentialPardonForm& copy);
+        PresidentialPardonForm& operator=(const PresidentialPardonForm& copy);
+        ~PresidentialPardonForm();
+
+        void execute(Bureaucrat const & executor) const;
+};
+
+#endif

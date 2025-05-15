@@ -6,12 +6,17 @@
 /*   By: gd-auria <gianmarco.dauria@libero.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:06:15 by gd-auria          #+#    #+#             */
-/*   Updated: 2025/05/15 14:04:02 by gd-auria         ###   ########.fr       */
+/*   Updated: 2025/05/15 16:25:39 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AFORM_HPP
 #define AFORM_HPP
+
+#include <string>
+#include <iostream>
+#include <exception>
+
 
 #include "Bureaucrat.hpp"
 
@@ -24,14 +29,17 @@ class AForm
         bool    _signed;
         int _gradeToSign;
         int _gradeToExecute;
+        std::string _target;
         
     public:
-
-        AForm(std::string& name, int gradeToSign, int gradeToExecute);
+        AForm();
+        AForm(const std::string& name, const std::string& target, int gradeToSign, int gradeToExecute);
         AForm(const AForm& copy);
         AForm& operator=(const AForm& copy);
         
         const std::string& getName() const;
+        const std::string& getTarget() const;
+
         bool isSigned() const;
         int getGradeToSign() const;
         int getGradeToExecute() const;

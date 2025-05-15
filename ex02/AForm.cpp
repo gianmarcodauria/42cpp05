@@ -6,14 +6,19 @@
 /*   By: gd-auria <gianmarco.dauria@libero.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:03:46 by gd-auria          #+#    #+#             */
-/*   Updated: 2025/05/15 14:03:41 by gd-auria         ###   ########.fr       */
+/*   Updated: 2025/05/15 16:25:52 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm(std::string& name, int gradeToSign, int gradeToExecute)
+AForm::AForm()
+{
+    
+}
+
+AForm::AForm(const std::string& name, const std::string& target, int gradeToSign, int gradeToExecute)
 {
     if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
@@ -21,6 +26,7 @@ AForm::AForm(std::string& name, int gradeToSign, int gradeToExecute)
     if (gradeToSign > 150 || gradeToExecute > 150)
         throw GradeTooHighException();
     _name = name;
+    _target = target;
     _signed = false;
     _gradeToSign = gradeToSign;
     _gradeToExecute = gradeToExecute;
@@ -50,6 +56,10 @@ const std::string& AForm::getName() const
     return _name;
 }
 
+const std::string& AForm::getTarget() const
+{
+    return _target;
+}
 
 AForm::~AForm()
 {

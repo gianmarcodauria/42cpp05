@@ -3,26 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gd-auria <gianmarco.dauria@libero.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:46:00 by gd-auria          #+#    #+#             */
-/*   Updated: 2025/05/14 14:49:39 by gd-auria         ###   ########.fr       */
+/*   Updated: 2025/05/15 15:34:05 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SHRUBBERY_CREATION_FORM_HPP
+#define SHRUBBERY_CREATION_FORM_HPP
+
 #include "AForm.hpp"
 
-// class ShrubberyCreationForm : public AForm
-// {
-//     public:
-//         ShrubberyCreationForm(std::string name) : AForm(name, 145, 137) {}
-//         void execute(Bureaucrat const& executor) const
-//         {
-//             if (!isSigned())
-//                 throw AForm::AFormUnsignedException();
-//             if (executor.getGrade() > getGradeToExecute())
-//                 throw AForm::GradeTooLowException();
+#include <string>
+#include <fstream>
 
-//             std::cout << executor.getName() << " executes " << getName() << std::endl;
-//         }
-// };
+class ShrubberyCreationForm : public AForm
+{
+    
+}
+
+
+#endif

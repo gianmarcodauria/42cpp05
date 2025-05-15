@@ -6,7 +6,7 @@
 /*   By: gd-auria <gianmarco.dauria@libero.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 19:26:12 by gd-auria          #+#    #+#             */
-/*   Updated: 2025/05/15 15:08:41 by gd-auria         ###   ########.fr       */
+/*   Updated: 2025/05/15 17:03:09 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@ int main(int argc, char **argv)
             // AmazonForm form("AmazonLogIn");
             // ShrubberyCreationForm sForm("home");
             // PresidentialPardonForm pForm("whiteHouse");
-            Bureaucrat bureaucrat("Anton", 21);
+            Bureaucrat anton("Anton", 21);
+            Bureaucrat luisa("Luisa", 50);
+            Bureaucrat sara("Sara", 150);
+
             RobotomyRequestForm rForm("robotHouse");
-            bureaucrat.signForm(rForm);
-            rForm.execute(bureaucrat);
+            anton.signForm(rForm);
+            rForm.execute(anton);
 
 
             // bureaucrat.signForm(sForm);

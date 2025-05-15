@@ -6,7 +6,7 @@
 /*   By: gd-auria <gianmarco.dauria@libero.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 18:25:05 by gd-auria          #+#    #+#             */
-/*   Updated: 2025/05/15 13:58:36 by gd-auria         ###   ########.fr       */
+/*   Updated: 2025/05/15 17:03:57 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Bureaucrat destroyed" << std::endl;    
+    std::cout << "Bureaucrat " << getName() << " destroyed" << std::endl;    
 }
 
 
