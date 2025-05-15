@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gd-auria <gianmarco.dauria@libero.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:03:46 by gd-auria          #+#    #+#             */
-/*   Updated: 2025/05/13 18:28:40 by gd-auria         ###   ########.fr       */
+/*   Updated: 2025/05/15 14:03:41 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form(std::string& name, int gradeToSign, int gradeToExecute)
+AForm::AForm(std::string& name, int gradeToSign, int gradeToExecute)
 {
     if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
@@ -26,14 +26,14 @@ Form::Form(std::string& name, int gradeToSign, int gradeToExecute)
     _gradeToExecute = gradeToExecute;
 }
 
-Form::Form(const Form& copy)
+AForm::AForm(const AForm& copy)
     : _name(copy._name)
 {
     std::cout << getName() << " copy created!" << std::endl;
 }
 
 
-Form& Form::operator=(const Form& copy)
+AForm& AForm::operator=(const AForm& copy)
 {
     if (this != &copy)
     {
@@ -45,54 +45,54 @@ Form& Form::operator=(const Form& copy)
     return *this;
 }
 
-const std::string& Form::getName() const
+const std::string& AForm::getName() const
 {
     return _name;
 }
 
 
-Form::~Form()
+AForm::~AForm()
 {
 }
 
 
-bool Form::isSigned() const
+bool AForm::isSigned() const
 {
     return _signed;
 }
 
 
-int Form::getGradeToSign() const
+int AForm::getGradeToSign() const
 {
     return _gradeToSign;
 }
 
 
-int Form::getGradeToExecute() const
+int AForm::getGradeToExecute() const
 {
     return _gradeToExecute;
 }
 
 
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* AForm::GradeTooHighException::what() const throw()
 {
     return "Grade is too high!";
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
     return "Grade is too low!";
 }
 
-const char* Form::FormUnsignedException::what() const throw()
+const char* AForm::AFormUnsignedException::what() const throw()
 {
     return "Form is unsigned!";
 }
 
 
 
-void Form::bureaucratSigned(const Bureaucrat& bureaucrat)
+void AForm::bureaucratSigned(const Bureaucrat& bureaucrat)
 {
     if (bureaucrat.getGrade() > _gradeToSign)
         throw GradeTooLowException();
@@ -100,7 +100,7 @@ void Form::bureaucratSigned(const Bureaucrat& bureaucrat)
 }
 
 
-std::ostream& operator<<(std::ostream& os, const Form& form)
+std::ostream& operator<<(std::ostream& os, const AForm& form)
 {
     std::string _signedText;
 

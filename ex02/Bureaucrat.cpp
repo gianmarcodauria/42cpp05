@@ -6,11 +6,13 @@
 /*   By: gd-auria <gianmarco.dauria@libero.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 18:25:05 by gd-auria          #+#    #+#             */
-/*   Updated: 2025/05/13 18:11:07 by gd-auria         ###   ########.fr       */
+/*   Updated: 2025/05/15 13:58:36 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade)
 {
@@ -93,7 +95,7 @@ std::ostream& operator<<(std::ostream& os,
     return os;
 }
 
-void Bureaucrat::signForm(Form& form) const
+void Bureaucrat::signForm(AForm& form) const
 {
     try
     {
@@ -107,7 +109,7 @@ void Bureaucrat::signForm(Form& form) const
     }
 }
 
-void Bureaucrat::execForm(Form& form) const
+void Bureaucrat::execForm(AForm& form) const
 {
     try
     {

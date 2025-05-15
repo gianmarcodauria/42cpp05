@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gd-auria <gianmarco.dauria@libero.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:06:15 by gd-auria          #+#    #+#             */
-/*   Updated: 2025/05/13 18:32:24 by gd-auria         ###   ########.fr       */
+/*   Updated: 2025/05/15 14:04:02 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
     private:
         std::string _name;
@@ -27,9 +27,9 @@ class Form
         
     public:
 
-        Form(std::string& name, int gradeToSign, int gradeToExecute);
-        Form(const Form& copy);
-        Form& operator=(const Form& copy);
+        AForm(std::string& name, int gradeToSign, int gradeToExecute);
+        AForm(const AForm& copy);
+        AForm& operator=(const AForm& copy);
         
         const std::string& getName() const;
         bool isSigned() const;
@@ -51,14 +51,14 @@ class Form
             const char* what() const throw();
         };
         
-        class FormUnsignedException : public std::exception
+        class AFormUnsignedException : public std::exception
         {
             public:
             const char* what() const throw();
         };
-        virtual ~Form();
+        virtual ~AForm();
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& form);
+std::ostream& operator<<(std::ostream& os, const AForm& form);
 
 #endif
